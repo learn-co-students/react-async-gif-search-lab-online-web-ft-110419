@@ -8,36 +8,36 @@ class GifListContainer extends Component {
     constructor() {
         super()
         this.state = {
-
+            url1: "",
+            url2: "",
+            url3: ""
         }
     }
 
-    componentDidMount() {
-        let query = "penguin"
+    handleSubmit = (event, query) => {
+        event.preventDefault()
         fetch(`https://api.giphy.com/v1/gifs/search?q=${query}&api_key=dc6zaTOxFJmzC&rating=g`)
         .then(response => response.json())
         .then(json => {
-            console.log(json.data[0].images.original.url)
             this.setState({
                 url1: json.data[0].images.original.url,
                 url2: json.data[1].images.original.url,
                 url3: json.data[2].images.original.url
-
             })
         })
     }
 
-    handleSubmit = () => {
-        console.log("handleSubmit function")
+    renderList = () => {
+        if (this.state.url1 !== "") {
+            return (<GifList results={this.state}/>)
+        }
     }
 
-
     render() {
-        console.log("GifListContainer rendering")
         return (
         <div>
-            <GifSearch  onHandleSubmit={this.handleSubmit}/>
-            <GifList results={this.state}/>
+            <GifSearch onHandleSubmit={this.handleSubmit}/>
+            {this.renderList()}
         </div>
         )
     }

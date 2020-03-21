@@ -1,14 +1,32 @@
 import React, { Component } from "react";
 
-// import GifList from '/Users/jessebyers/Development/code/react-async-gif-search-lab-online-web-ft-110419/src/components/GifList'
-// import GifSearch from '/Users/jessebyers/Development/code/react-async-gif-search-lab-online-web-ft-110419/src/components/GifSearch'
-
 class GifSearch extends Component {
 
+    constructor() {
+        super()
+        this.state = {
+            query: ""
+        }
+    }
+
+    handleChange = (event) => {
+        this.setState({
+          [event.target.name]: event.target.value
+        })
+      }
+
     render() {
-        console.log("GifSearch rendering")
         return (
-            <div>GifSearch Component Content</div>
+            <form onSubmit={event => this.props.onHandleSubmit(event, this.state.query)} >
+                Enter a Search Term:
+                <input id="query" 
+                    name="query" 
+                    type="text" 
+                    value={this.state.query}
+                    onChange={this.handleChange}
+                />
+                <button type="submit">Search</button>
+            </form>
         )
     }
 }
