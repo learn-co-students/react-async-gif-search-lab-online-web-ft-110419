@@ -1,13 +1,12 @@
 import React from 'react'
-
 import NavBar from './NavBar'
-
-// the App component should render out the GifListContainer component 
+import GifListContainer from '/Users/jessebyers/Development/code/react-async-gif-search-lab-online-web-ft-110419/src/containers/GifListContainer'
 
 const App = () => {
   return (
     <div>
         < NavBar color='black' title="Giphy Search" />
+        < GifListContainer />
     </div>
   )
 }
