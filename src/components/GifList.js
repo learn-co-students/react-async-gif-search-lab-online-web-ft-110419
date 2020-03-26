@@ -13,7 +13,7 @@ export default class GifList extends Component{
     }
     
    render(){
-  
+    console.log(this.gifList())
    return (<ul>{this.gifList()}</ul>
    )
    }
