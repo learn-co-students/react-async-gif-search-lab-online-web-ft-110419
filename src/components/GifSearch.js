@@ -12,7 +12,7 @@ class GifSearch extends Component {
   handleInput = (e) => {
     this.setState({
       search: e.target.value
-    }, ()=> console.log(this.state))
+    })
   }
 
   render() {
