@@ -9,17 +9,16 @@ export default class GifListContainer extends Component {
     query: ''
   }
 
-  componentDidMount() {
-
-  }
-
   handleChange = e => {
     this.setState({ query: e.target.value });
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log('fetching...')
+    this.fetchGifs();
+  }
+
+  fetchGifs = () => {
     fetch(`https://api.giphy.com/v1/gifs/search?q=${this.state.query}&api_key=${API_KEY}&rating=g`)
       .then(res => res.json())
       .then(json => {
