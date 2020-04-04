@@ -29,4 +29,5 @@ export default class GiftListContainer extends Component {
     componentDidMount() {
         this.fetchImages()
     }
+
 }
