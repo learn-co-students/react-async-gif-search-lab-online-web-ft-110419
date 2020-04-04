@@ -8,7 +8,7 @@ export default class GiftListContainer extends Component {
             imgs: [],
         }
     }
-    fetchImages(subject = "dog") {
+    fetchImages = (subject = "dog") => {
         fetch(`https://api.giphy.com/v1/gifs/search?q=${subject}&api_key=h631fCr4Wwd5YpghYtSpU5KSo1fsrbCz&rating=g`)
             .then(res => res.json())
             .then(json => {
